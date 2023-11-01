@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Runner {
-    CaesarCipher caesarCipher = new CaesarCipher();
-    FileService fileService = new FileService();
+    private static CaesarCipher caesarCipher = new CaesarCipher();
+    private static FileService fileService = new FileService();
 
     public static void runner() {
         System.out.println("Enter next string: [command] [filePath] [key]\n ▶ command: ENCRYPT, DECRYPT, BRUTE_FORCE\n ▶ filePath - must be absolute!\n ▶ key: 1-25");
@@ -28,6 +28,6 @@ public class Runner {
             System.out.println("Error");
             return;
         }
-
+        System.out.println(caesarCipher.Encrypt(command, key));
     }
 }
