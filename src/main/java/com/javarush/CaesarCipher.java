@@ -6,7 +6,29 @@ public class CaesarCipher {
     private String alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
-    public void BruteForce() {
+    public String BruteForce(String encryptedText) {
+        StringBuilder result = new StringBuilder();
+
+        for(int key = 1; key < 26; key++){
+            for(char symbol : encryptedText.toCharArray()){
+                if(Character.isUpperCase(symbol)){
+                    if(alphabetUpper.indexOf(symbol) + key >= alphabetUpper.length()){
+                        symbol = alphabetUpper.charAt(Math.abs((alphabetUpper.indexOf(symbol) + key) - alphabetUpper.length()));
+                    } else {
+                        symbol = alphabetUpper.charAt(alphabetUpper.indexOf(symbol) + key);
+                    }
+                } else if (Character.isLowerCase(symbol)) {
+                    if (alphabetLower.indexOf(symbol) + key >= alphabetLower.length()) {
+                        symbol = alphabetLower.charAt(Math.abs((alphabetLower.indexOf(symbol) + key) - alphabetLower.length()));
+                    } else {
+                        symbol = alphabetLower.charAt(alphabetLower.indexOf(symbol) + key);
+                    }
+                }
+                result.append(symbol);
+            }
+            result.append(" ");
+        }
+        return result.toString();
     }
 
     public String Encrypt(String textToEncrypt, int key) {
