@@ -1,8 +1,10 @@
-package com.javarush;
+package com.javarush.fileservice;
 
-import java.io.*;
-import java.nio.file.Path;
-import java.util.Arrays;
+import com.javarush.CaesarCipher;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 public class FileService {
 
