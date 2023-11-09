@@ -1,7 +1,5 @@
 package com.javarush.fileservice;
 
-import com.javarush.CaesarCipher;
-
 import java.io.File;
 
 public class FileService {
