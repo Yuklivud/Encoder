@@ -8,6 +8,9 @@ public class Runner {
     private static CaesarCipher caesarCipher = new CaesarCipher();
     private static FileService fileService = new FileService();
 
+    // разбить метод runner, fileService на разные методы \ классы
+    // создать новую ветку
+
     public static void runner() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choose work mode:\n▶ 1 - Work with files.\n▶ 2 - Work in console.");
