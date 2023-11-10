@@ -84,6 +84,8 @@ public class CaesarCipher {
                         symbol = alphabetLowerUa.charAt(alphabetLowerUa.indexOf(symbol) + key);
                     }
                 }
+            } else if (checkWhatIsLanguage(symbol).equals("sym")) {
+                symbol = symbols.charAt((symbols.indexOf(symbol) + key) % symbols.length());
             }
             result.append(symbol);
         }
@@ -123,8 +125,8 @@ public class CaesarCipher {
                         symbol = alphabetLowerUa.charAt((alphabetLowerUa.indexOf(symbol) - key) + alphabetLowerUa.length());
                     }
                 }
-
             }
+
             result.append(symbol);
         }
         return result;
@@ -134,8 +136,10 @@ public class CaesarCipher {
             return "eng";
         } else if (alphabetLowerUa.indexOf(Character.toLowerCase(symbol)) != -1) {
             return "ua";
+        } else if (symbols.indexOf(symbol) != -1) {
+            return "sym";
         } else {
-            return "skip";
+            return "ignored";
         }
     }
 }
