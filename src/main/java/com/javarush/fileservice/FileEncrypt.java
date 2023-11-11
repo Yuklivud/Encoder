@@ -1,27 +1,19 @@
 package com.javarush.fileservice;
 
-import com.javarush.CaesarCipher;
+import com.javarush.caesarcipher.CaesarCipher;
+import com.javarush.files.FileReader;
+import com.javarush.files.FileWriter;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+class FileEncrypt {
+    private static CaesarCipher caesarCipher = new CaesarCipher();
 
-public class FileEncrypt {
     public static void encryptFile(String filePath, String targetFilePath, int key) {
-        CaesarCipher caesarCipher = new CaesarCipher();
-        try (FileInputStream fis = new FileInputStream(filePath);
-             FileOutputStream fos = new FileOutputStream(targetFilePath)) {
-
-            StringBuilder stringBuilder = new StringBuilder();
-            int i;
-            while ((i = fis.read()) != -1) {
-                stringBuilder.append((char) i);
-            }
-
+        try {
+            StringBuilder stringBuilder = new StringBuilder(FileReader.read(filePath));
             String encryptedData = caesarCipher.encrypt(stringBuilder.toString(), key);
-            byte[] bytes = encryptedData.getBytes();
-            fos.write(bytes, 0, bytes.length);
-        } catch (Throwable ignored) {
-            System.out.println(ignored.getMessage());
+            FileWriter.write(targetFilePath, encryptedData);
+        } catch (Throwable ex) {
+            ex.printStackTrace();
         }
     }
 }
