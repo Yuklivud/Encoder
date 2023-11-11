@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="maksym.shkarbun.encoder:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/maksym_shkarbun_encoder_jar</output-path>
+    <root id="archive" name="maksym.shkarbun.encoder.jar">
+      <element id="module-output" name="maksym.shkarbun.encoder" />
+    </root>
+  </artifact>
+</component>
