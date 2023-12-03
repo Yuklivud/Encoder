@@ -1,18 +1,14 @@
 package com.javarush.caesarcipher;
 
 class Decrypt {
-    private String alphabetEngUaAndSymbols =
-            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-                    "абвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ" +
-                    ".,«»\"\':!? ";
-
     public StringBuilder operateDecrypt(String textToOperate, int key) {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < textToOperate.length(); i++) {
             char symbol = textToOperate.charAt(i);
-            symbol = shiftCharacterDecrypt(symbol, key, alphabetEngUaAndSymbols);
+            symbol = shiftCharacterDecrypt(symbol, key, Alphabet.alphabetEngUaAndSymbols);
             result.append(symbol);
+
         }
         return result;
     }

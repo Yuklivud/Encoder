@@ -1,17 +1,12 @@
 package com.javarush.caesarcipher;
 
 class Encrypt {
-    private String alphabetEngUaAndSymbols =
-            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-                    "абвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ" +
-                    ".,«»\"\':!? ";
-
     public StringBuilder operateEncrypt(String textToOperate, int key) {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < textToOperate.length(); i++) {
             char symbol = textToOperate.charAt(i);
-            symbol = shiftCharacter(symbol, key, alphabetEngUaAndSymbols);
+            symbol = shiftCharacter(symbol, key, Alphabet.alphabetEngUaAndSymbols);
             result.append(symbol);
         }
         return result;
