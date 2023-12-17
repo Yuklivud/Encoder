@@ -1,0 +1,42 @@
+Caesar Cipher Encryption
+
+Overview
+⇒ This project is a program for encrypting and decrypting text using the Caesar cipher method. The program operates through the console, accepting command-line parameters (args). The entire process of encryption, decryption, and other operations is performed using files.
+
+Features
+
+Argument Handling
+⇒ The project supports command-line argument passing, ensuring flexibility in usage.
+
+Encryption and Decryption
+⇒ Implemented functions for encrypting and decrypting data to ensure secure transmission and storage of information.
+
+Brute Force
+⇒ The project includes a brute-force key enumeration, attempting all possible keys.
+
+File System Operations
+⇒ The program supports file system operations, providing convenient interaction with data.
+
+
+Шифрование методом Цезаря
+
+Описание
+⇒ Этот проект представляет собой программу для шифрования и дешифрования текста с использованием метода Цезаря. Программа работает через консоль, принимая параметры командной строки (args). Весь процесс шифрования, дешифрования и другие операции выполняются с использованием файлов.
+
+Возможности
+
+Обработка аргументов
+⇒ Проект поддерживает передачу аргументов командной строки, обеспечивая гибкость в использовании.
+
+Шифрование и дешифрование
+⇒ Реализованы функции шифрования и дешифрования данных для безопасной передачи и хранения информации.
+
+Брутфорс
+⇒ В проекте предусмотрен бутфорс перебором ключей который осуществляющий перебор всех возможных ключей.
+
+Работа с файловой системой
+⇒ Программа поддерживает операции с файловой системой, что обеспечивает удобное взаимодействие с данными.
+
+Команды для запуска
+⇒ Пример(java -jar "путь к jar файлу" команда "путь к файлу над которым будет выполнена команда" ключ) (java -jar "C:\Java\encoder.jar" encrypt "C:\Java\textfile.txt" 1)
+⇒ Команды есть следующие: encrypt, decrypt, brute_force;

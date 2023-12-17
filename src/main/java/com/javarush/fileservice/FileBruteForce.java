@@ -1,27 +1,19 @@
 package com.javarush.fileservice;
 
-import com.javarush.CaesarCipher;
+import com.javarush.caesarcipher.CaesarCipher;
+import com.javarush.files.FileReader;
+import com.javarush.files.FileWriter;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+class FileBruteForce {
+    private final static CaesarCipher caesarCipher = new CaesarCipher();
 
-public class FileBruteForce {
-    public static void bruteForceFile(String filePath, String targetFilePath){
-        CaesarCipher caesarCipher = new CaesarCipher();
-        try (FileInputStream fis = new FileInputStream(filePath);
-             FileOutputStream fos = new FileOutputStream(targetFilePath)) {
-
-            StringBuilder stringBuilder = new StringBuilder();
-            int i;
-            while ((i = fis.read()) != -1) {
-                stringBuilder.append((char) i);
-            }
-
-            String encryptedData = caesarCipher.bruteForce(stringBuilder.toString());
-            byte[] bytes = encryptedData.getBytes();
-            fos.write(bytes, 0, bytes.length);
-        } catch (Throwable ignored) {
-            System.out.println(ignored.getMessage());
+    public static void bruteForceFile(String filePath, String targetFilePath) {
+        try {
+            String string = new String(FileReader.read(filePath));
+            String decryptedData = caesarCipher.bruteForce(string);
+            FileWriter.write(targetFilePath, decryptedData);
+        } catch (Throwable ex) {
+            ex.printStackTrace();
         }
     }
 }
